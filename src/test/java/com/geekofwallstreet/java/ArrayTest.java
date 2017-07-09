@@ -76,4 +76,25 @@ public class ArrayTest {
         assertEquals("%20", result);
 
     }
+
+    @Test
+    public void palindromePermutationTest() {
+        Boolean result = Array.palindromePermutation("cat tac");
+        assertEquals(true, result);
+
+        result = Array.palindromePermutation("cc");
+        assertEquals(true, result);
+
+        result = Array.palindromePermutation("catt tacc");
+        assertEquals(false, result);
+
+        result = Array.palindromePermutation("cattac");
+        assertEquals(true, result);
+
+        result = Array.palindromePermutation("cddb");
+        assertEquals(false, result);
+
+        result = Array.palindromePermutation("");
+        assertEquals(true, result);
+    }
 }

@@ -55,4 +55,36 @@ public class Array {
         }
         return stringBuilder.toString();
     }
+
+    public static Boolean palindromePermutation(String charactersString) {
+        Hashtable<Character, Integer> characterHash = new Hashtable<Character, Integer>();
+        char[] characters = charactersString.toCharArray();
+        Integer length = characters.length;
+        Boolean isPalindrome = true;
+        Integer oddCount = 0;
+
+        for (char c : characters) {
+            Integer count = characterHash.get(c);
+            if (count == null) {
+                characterHash.put(c, 1);
+                oddCount++;
+            } else {
+                count++;
+                characterHash.put(c, count);
+                if (count % 2 == 0) {
+                    oddCount--;
+                } else {
+                    oddCount++;
+                }
+            }
+            if (length % 2 == 0 && oddCount == 0) {
+                isPalindrome = true;
+            } else if (oddCount == 1) {
+                isPalindrome = true;
+            } else{
+                isPalindrome = false;
+            }
+        }
+        return isPalindrome;
+    }
 }
